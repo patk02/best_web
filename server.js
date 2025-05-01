@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-const dbURI = 'mongodb+srv://patk:Pk0984479298@cluster.x1rbldn.mongodb.net/best_web'
+const dbURI = process.env.dbURI; // เปลี่ยนเป็น URI ของ MongoDB ของคุณ
 
-require('dotenv').config();
 const secretKey = process.env.JWT_SECRET; // เปลี่ยนเป็น key ลับของคุณ
 
 // เชื่อมต่อ MongoDB
